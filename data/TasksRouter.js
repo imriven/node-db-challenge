@@ -16,10 +16,10 @@ router.get("/", (req, res) => {
 
 
 router.post("/", (req, res) => {
-    const newTask= req.params
-    Tasks.insert(newProject)  
+    const newTask= req.body
+    Tasks.insert(newTask)  
     .then(task => {
-        res.status(201).json(task);
+        res.status(201).send();
       })
       .catch (err => {
         res.status(500).json({ message: 'Failed to create new task' });

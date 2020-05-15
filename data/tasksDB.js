@@ -8,7 +8,7 @@ const db = knex(config.development);
 function get() {
  return db("tasks as t")
  .join("projects as p", "t.project_id", "p.id")
- .select("t.id", "t.description", "t.notes", "p.name", "p.description")
+ .select("t.id", "t.description", "t.notes", "p.name", "p.description as projectDescription", "p.id as projectId")
  .orderBy("t.id", "asc")
 }
 

@@ -15,10 +15,10 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    const newProject = req.params
+    const newProject = req.body
     Projects.insert(newProject)  
     .then(project => {
-        res.status(201).json(project);
+        res.status(201).send();
       })
       .catch (err => {
         res.status(500).json({ message: 'Failed to create new project' });

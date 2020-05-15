@@ -16,10 +16,10 @@ router.get("/", (req, res) => {
 
 
   router.post("/", (req, res) => {
-    const newResource = req.params
+    const newResource = req.body
     Resources.insert(newResource)  
     .then(resource => {
-        res.status(201).json(resource);
+        res.status(201).send();
       })
       .catch (err => {
         res.status(500).json({ message: "Failed to create new resource" });
